@@ -1,12 +1,13 @@
 import 'dart:convert';
 import 'dart:developer';
-
-import 'package:date_time_approach/model/excel_data.dart';
+import 'package:date_time_approach/provider/shipment_provider.dart';
 import 'package:excel/excel.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:open_file/open_file.dart';
+
+import '../core/model/excel_data.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
@@ -18,6 +19,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    final shipment = ShipmentProvider.get(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Title'),
@@ -38,10 +40,8 @@ class _HomeState extends State<Home> {
                   List<ExcelData> list = l
                       .map((e) => ExcelData.fromJson(json.decode(e.toString())))
                       .toList();
-                  log('${list[0].id}');
-                  log('${l[0]}');
-                  log('${json.decode(l[0].toString())["handover_code_courier_to_merchant"].runtimeType}');
-                  log('${json.decode(l[0].toString())["is_offer_based"].runtimeType}');
+                  await shipment.addBulkShipment(
+                      uploadedShipments: list.take(100).toList());
                 },
                 child: const Text('Create Excel File')),
             TextButton(onPressed: () {}, child: const Text('Get Excel File')),

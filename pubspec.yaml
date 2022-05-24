@@ -15,6 +15,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   file_picker:
   open_file:
+  provider:
+  http:
+  flutter_spinkit:
   intl:
 
 dev_dependencies:

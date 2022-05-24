@@ -1,4 +1,7 @@
+import 'package:date_time_approach/provider/shipment_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'core/network_state/network_state.dart';
 import 'screen/home.dart';
 
 void main() {
@@ -10,12 +13,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ChangeNotifierProvider(
+      create: (_) => ShipmentProvider(),
+      child: MaterialApp(
+        navigatorKey: navigator,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const Home(),
       ),
-      home: const Home(),
     );
   }
 }

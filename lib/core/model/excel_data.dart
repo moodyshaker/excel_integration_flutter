@@ -194,4 +194,9 @@ class ExcelData {
     data['deleted_at'] = deletedAt;
     return data;
   }
+
+  @override
+  String toString() {
+    return 'ExcelData{id: $id, parentId: $parentId, receivingState: $receivingState, receivingCity: $receivingCity, receivingStreet: $receivingStreet, receivingLandmark: $receivingLandmark, receivingBuildingNumber: $receivingBuildingNumber, receivingFloor: $receivingFloor, receivingApartment: $receivingApartment, receivingLat: $receivingLat, receivingLng: $receivingLng, dateToReceiveShipment: $dateToReceiveShipment, deliveringState: $deliveringState, deliveringCity: $deliveringCity, deliveringStreet: $deliveringStreet, deliveringLandmark: $deliveringLandmark, deliveringBuildingNumber: $deliveringBuildingNumber, deliveringFloor: $deliveringFloor, deliveringApartment: $deliveringApartment, deliveringLat: $deliveringLat, deliveringLng: $deliveringLng, dateToDeliverShipment: $dateToDeliverShipment, clientName: $clientName, clientPhone: $clientPhone, notes: $notes, paymentMethod: $paymentMethod, amount: $amount, expectedShippingCost: $expectedShippingCost, agreedShippingCost: $agreedShippingCost, merchantId: $merchantId, courierId: $courierId, status: $status, handoverCodeCourierToMerchant: $handoverCodeCourierToMerchant, handoverQrcodeCourierToMerchant: $handoverQrcodeCourierToMerchant, handoverCodeMerchantToCourier: $handoverCodeMerchantToCourier, handoverQrcodeMerchantToCourier: $handoverQrcodeMerchantToCourier, handoverCodeCourierToCustomer: $handoverCodeCourierToCustomer, handoverQrcodeCourierToCustomer: $handoverQrcodeCourierToCustomer, isOfferBased: $isOfferBased, closed: $closed, closedAt: $closedAt, createdAt: $createdAt, updatedAt: $updatedAt, deletedAt: $deletedAt}';
+  }
 }
